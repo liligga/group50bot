@@ -10,16 +10,16 @@ dp = Dispatcher(bot)
 @dp.message_handler(commands=['start'])
 async def start_handler(message):
     user = message.from_user
-    # user.first_name
-    # user.last_name
-    # user.username
-    # user.id
+    # user.first_name - имя пользователя, есть всегда
+    # user.last_name - фамилия, может не быть
+    # user.username - ник пользователя(@), может не быть
+    # user.id - уникальный индетификатор пользователя, есть всегда, в виде чмсла
     await message.answer(f"Hello, {user.first_name}")
 
 
 @dp.message_handler()
 async def echo_handler(message):
-    text = message.text
+    text = message.text # текст ссобщения
     await message.answer(text)
 
 
