@@ -1,7 +1,7 @@
 import asyncio
 import logging
 
-from bot_config import dp
+from bot_config import dp, database
 from handlers import start, picture, other_message, complaint_dialog
 
 
@@ -13,6 +13,7 @@ async def main():
     # обязательно в самом конце
     other_message.register_handlers(dp)
     # запуск бота
+    database.create_tables()
     await dp.start_polling()
 
 
